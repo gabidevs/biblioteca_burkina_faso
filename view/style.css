@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+form {
+    margin:auto;
+    width: 50%;
+}
+
+input :focus{
+    border-color: blue;
+}
+
+.input_erro {
+    border-color: red;
+}
