@@ -10,6 +10,7 @@ class Livros extends Crud{
         public string $editora,
         public string $imagem,
         public string $autor,
+        public array $erro=[]
     ){}
 
 
@@ -25,6 +26,9 @@ class Livros extends Crud{
             $sql = "INSERT INTO $this->tabela VALUES (null,?,?,?,?)";
             $sql = BD::prepare($sql);
             return $sql->execute(array($this->titulo, $this->editora, $this->imagem, $this->autor));
+
+        } else {
+            $this->erro['erro_geral'] = "Livro já cadastrado";
         }
 
     }

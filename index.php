@@ -1,5 +1,5 @@
 <?php
-require_once('../model/Livros.php');
+require_once('autoload.php');
 
 if(isset($_POST['titulo'])) {
   $titulo = $_POST['titulo'];

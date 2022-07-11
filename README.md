@@ -1,4 +1,4 @@
-<h1>**Biblioteca Burkina Faso**</h1>
+<h1>Biblioteca Burkina Faso</h1>
 
 
 
@@ -24,17 +24,22 @@ Seu desafio é criar o backend para um sistema de gerenciamento de uma bibliotec
 
 -**Desafio em andamento**-
 
-11/07/2022: Elaborada a tela que para interação do usuário. Inserido o campo de cadastro e busca dos livros. Feita o banco e estrutura para comunicação com o mesmo utilizando o modelo de arquitetura MVC. Escolhido o paradigma de orientação a objetos para desenvolvimento das rotas. Elaborada a rota de cadastro dos livros no banco.
+11/07/2022: 
+
+- Elaborada a tela para interação do usuário;
+- Inserido o campo de cadastro e busca dos livros; 
+- Feito o banco e estrutura para comunicação com o mesmo, escolhido o paradigma de orientação a objetos para desenvolvimento das rotas;
+- Elaborada a rota de cadastro dos livros no banco.
 
 Próximos passos: 
 
-- Construir rotas para selecionar, editar e deletar os dados cadastrados.
+- Construir rotas para selecionar, editar e deletar os dados cadastrados;
 
-- Aprimorar o tratamento de erros e procedimentos de segurança.
+- Aprimorar o tratamento de erros e procedimentos de segurança;
 
-- Criar a tabela e o serviço para cadastro de usuário.
+- Criar a tabela e o serviço para cadastro de usuário;
 
--  Criar o serviço para checagem de login.
+-  Criar o serviço para checagem de login;
 
 - Implementar o serviço de login via conta google.
 
