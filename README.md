@@ -31,9 +31,21 @@ Seu desafio é criar o backend para um sistema de gerenciamento de uma bibliotec
 - Feito o banco e estrutura para comunicação com o mesmo, escolhido o paradigma de orientação a objetos para desenvolvimento das rotas;
 - Elaborada a rota de cadastro dos livros no banco.
 
+
+
+13/07/2022:
+
+- Construído o método de busca do títulos cadastrados.
+
+  Descrição: Com esse método será possível localizar o título inserindo seu nome ou palavras contidas no título.
+
 Próximos passos: 
 
-- Construir rotas para selecionar, editar e deletar os dados cadastrados;
+- Construir rotas para editar e deletar os dados cadastrados;
+
+- Melhoria na visualização das informações consultadas pelo usuário;
+
+- Inserir condições de busca pelo nome do autor; 
 
 - Aprimorar o tratamento de erros e procedimentos de segurança;
 

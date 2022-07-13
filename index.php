@@ -1,7 +1,7 @@
 <?php
 require_once('autoload.php');
 
-if(isset($_POST['titulo'])) {
+if(isset($_POST['cadastrar'])) {
   $titulo = $_POST['titulo'];
   $editora = $_POST['editora'];
   $imagem = $_POST['imagem'];
@@ -55,7 +55,7 @@ if(isset($_POST['titulo'])) {
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="autor"  required>
           </div>
 
-          <button type="submit" class="btn btn-primary" name="cadastrar">Cadastrar</button> <?php if (isset($cadastro->erro['erro_geral'])) { echo $cadastro->erro['erro_geral']; } else { echo "Livro cadastrado com sucesso!";}?>
+          <button type="submit" class="btn btn-primary" name="cadastrar">Cadastrar</button> <?php if (isset($cadastro->status['erro'])) { echo $cadastro->status['erro']; } if(isset($cadastro->status['sucess'])){echo $cadastro->status['sucess']; }?>
 
     </form>
       <p>
@@ -69,17 +69,61 @@ if(isset($_POST['titulo'])) {
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Título</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="busca_tiutlo" placeholder="Digite o título do livro aqui" >
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="busca_titulo" placeholder="Digite o título do livro aqui" >
           </div>
 
+          <!-- 
+            Campo para inserir o nome do autor:  
+          
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Autor</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="busca_autor" placeholder="Digite o nome do autor para encontrar todos os livros deste" >
-          </div>
+          </div> -->
 
-          <button type="button" class="btn btn-primary" name="buscar">Buscar</button> 
+          <button type="submit" class="btn btn-primary" name="buscar">Buscar</button> <br>
+
+
+          <?php
+
+            if (isset($_POST['busca_titulo'])) {
+                $titulo = $_POST['busca_titulo'];
+
+                $buscar = new Livros();
+
+                $buscar->titulo = $titulo;
+
+
+                $valor = $buscar->select($buscar->titulo);
+                echo "<pre>";
+                print_r($valor);
+                echo "</pre>";
+
+            } 
+            
+            
+            /* 
+              Condição para localizar livros pelo autor:
+            
+              elseif (isset($_POST['busca_autor'])) {
+              $autor = $_POST['busca_autor'];
+
+              $buscar = new Livros();
+
+              $buscar->titulo = $autor;
+
+
+              $valor = $buscar->select($buscar->autor);
+
+              echo "<pre>";
+              print_r($valor);
+              echo "</pre>";
+
+            } */
+          ?>
     </form>
      
+
+
 </body>
 </html>
 

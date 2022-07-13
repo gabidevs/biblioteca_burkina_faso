@@ -6,10 +6,10 @@ class Livros extends Crud{
  
 
     function __construct(
-        public string $titulo,
-        public string $editora,
-        public string $imagem,
-        public string $autor,
+        public string $titulo = '',
+        public string $editora = '',
+        public string $imagem = '',
+        public string $autor = '',
         public array $erro=[]
     ){}
 
@@ -25,10 +25,12 @@ class Livros extends Crud{
         if(!$livros){
             $sql = "INSERT INTO $this->tabela VALUES (null,?,?,?,?)";
             $sql = BD::prepare($sql);
-            return $sql->execute(array($this->titulo, $this->editora, $this->imagem, $this->autor));
+            $sql->execute(array($this->titulo, $this->editora, $this->imagem, $this->autor));
+
+            $this->status['sucess'] = "Livro cadastrado com sucesso";
 
         } else {
-            $this->erro['erro_geral'] = "Livro já cadastrado";
+            $this->status['erro'] = "Livro já cadastrado";
         }
 
     }
@@ -40,21 +42,42 @@ class Livros extends Crud{
 
     public function select($id)
     {
-        if(isset($this->titulo)) {
             $sql = "SELECT * FROM $this->tabela WHERE titulo LIKE '%$this->titulo%'";
+            $sql = BD::prepare($sql);
+            $sql->execute();
+
+            $valor = $sql->fetch();
+
+            if(!$valor) {
+                
+                $valor = "Livro não encontrado";
+
+                return $valor;
+            } else {
+
+                return $valor;
+
+            }
+            
+            
+            /*
+            Condição caso seja inserido nome do autor no lugar de nome do
+            
+            else {
+                
+
+            }
+
+        } elseif (isset($this->autor)) {
+            $sql = "SELECT * FROM $this->tabela WHERE titulo LIKE '%$this->autor%'";
             $sql = BD::prepare($sql);
             $sql->execute();
 
             $valor = $sql->fecth(PDO::FETCH_ASSOC);
 
             return $valor;
-        } elseif (isset($this->autor)) {
-            $sql = "SELECT * FROM $this->tabela WHERE titulo LIKE '%$this->titulo%'";
-            $sql = BD::prepare($sql);
-            $sql->execute();
+        }*/
 
-            $valor = $sql->fecth(PDO::FETCH_ASSOC);
-        }
     }
 
     public function selectAll()
