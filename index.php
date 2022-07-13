@@ -94,9 +94,14 @@ if(isset($_POST['cadastrar'])) {
 
 
                 $valor = $buscar->select($buscar->titulo);
-                echo "<pre>";
+                /*echo "<pre>";
                 print_r($valor);
-                echo "</pre>";
+                echo "</pre>";*/
+
+                echo "Título: ".$valor['titulo']."<br>
+                      Editora: ".$valor['editora']."<br>
+                      Link da imagem: <a href='".$valor['imagem']."' target='_blank'>".$valor['imagem']."<a/><br>
+                      Autor: ".$valor['autor'];
 
             } 
             

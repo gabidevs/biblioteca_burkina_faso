@@ -46,7 +46,7 @@ class Livros extends Crud{
             $sql = BD::prepare($sql);
             $sql->execute();
 
-            $valor = $sql->fetch();
+            $valor = $sql->fetch(PDO::FETCH_ASSOC);
 
             if(!$valor) {
                 
