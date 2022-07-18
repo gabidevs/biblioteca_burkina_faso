@@ -37,7 +37,15 @@ class Livros extends Crud{
 
     public function update($sql)
     {
+        $sql = "SELECT * FROM $this->tabela";
+        $sql = BD::prepare($sql);
+        $sql->execute();
 
+        $itens = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+        return $itens;
     }
 
     public function select($id)
@@ -49,10 +57,8 @@ class Livros extends Crud{
             $valor = $sql->fetch(PDO::FETCH_ASSOC);
 
             if(!$valor) {
-                
-                $valor = "Livro não encontrado";
 
-                return $valor;
+                return "Livro não encontrado";
             } else {
 
                 return $valor;
@@ -82,7 +88,13 @@ class Livros extends Crud{
 
     public function selectAll()
     {
-        
+        $sql = "SELECT * FROM livros";
+        $sql = BD::prepare($sql);
+        $sql->execute();
+
+        $itens = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $itens;
     }
 
     public function delete($id)

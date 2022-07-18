@@ -65,7 +65,7 @@ if(isset($_POST['cadastrar'])) {
 
           <h2>Pesquisar</h2>
 
-          <p>Busque seu livro ou autor aqui!</p>
+          <p>Busque seu livro!</p>
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Título</span>
@@ -85,7 +85,7 @@ if(isset($_POST['cadastrar'])) {
 
           <?php
 
-            if (isset($_POST['busca_titulo'])) {
+            if (isset($_POST['buscar'])) {
                 $titulo = $_POST['busca_titulo'];
 
                 $buscar = new Livros();
@@ -98,10 +98,15 @@ if(isset($_POST['cadastrar'])) {
                 print_r($valor);
                 echo "</pre>";*/
 
+                if($valor == 'Livro não encontrado') {
+                  echo $valor;
+                } else {
+
                 echo "Título: ".$valor['titulo']."<br>
                       Editora: ".$valor['editora']."<br>
                       Link da imagem: <a href='".$valor['imagem']."' target='_blank'>".$valor['imagem']."<a/><br>
                       Autor: ".$valor['autor'];
+                }
 
             } 
             
@@ -125,6 +130,26 @@ if(isset($_POST['cadastrar'])) {
 
             } */
           ?>
+
+
+            <p><br>
+              <button type="submit" class="btn btn-primary" name="editar">Mostrar livros cadastrados</button>
+            </p>
+
+            <?php
+              if(isset($_POST['editar'])) {
+                $select = new Livros();
+
+                $retorno = $select->selectAll();
+
+                foreach($retorno as $key => $value) {
+                  echo "<p> Título: ".$value['titulo']."<br>
+                        Editora: ".$value['editora']."<br>
+                        Link da imagem: <a href='".$value['imagem']."' target='_blank'>".$value['imagem']."</a><br>
+                        Autor: ".$value['autor']."</p>";
+                }
+              }
+            ?>
     </form>
      
 

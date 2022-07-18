@@ -39,11 +39,14 @@ Seu desafio é criar o backend para um sistema de gerenciamento de uma bibliotec
 
   Descrição: Com esse método será possível localizar o título inserindo seu nome ou palavras contidas no título.
 
+18/07/2022:
+
+- Construção da rota para listar todos os livros cadastrados;
+- Melhoria na visualização das informações consultadas pelo usuário.
+
 Próximos passos: 
 
 - Construir rotas para editar e deletar os dados cadastrados;
-
-- Melhoria na visualização das informações consultadas pelo usuário;
 
 - Inserir condições de busca pelo nome do autor; 
 
